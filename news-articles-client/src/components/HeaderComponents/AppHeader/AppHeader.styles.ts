@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const AppHeaderStyles = styled.header.attrs({className: 'AppHeader'})`
-  height: 10vh;
+  min-height: 10vh;
   background-color: #282c34;
   color: white;
   position: fixed;
@@ -12,6 +12,7 @@ export const AppHeaderStyles = styled.header.attrs({className: 'AppHeader'})`
   display: flex;
   justify-content: center;
 `;
+
 
 export const ControlPanel = styled.div.attrs({className: 'ControlPanel'})`
 
