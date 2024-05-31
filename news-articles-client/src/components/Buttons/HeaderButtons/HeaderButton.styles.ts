@@ -6,4 +6,11 @@ export const HeaderButtonStyles = styled.button.attrs({className: 'HeaderButton'
   border: 1px solid black;
   border-radius: 40px;
 
+
+  &:hover {
+    background-color: antiquewhite;
+    cursor: pointer;
+  }
+  
+  
 `;

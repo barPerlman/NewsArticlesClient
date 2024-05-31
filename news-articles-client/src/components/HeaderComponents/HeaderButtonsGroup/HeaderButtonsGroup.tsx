@@ -1,13 +1,14 @@
 import React from "react";
 import {HeaderButtonsGroupStyles} from './HeaderButtonsGroup.styles';
-import HeaderButton from "../../Buttons/HeaderButtons/HeaderButton";
+import GetArticleButton from "../../Buttons/GetArticleButton/GetArticleButton";
+import BreakingNewsButton from "../../Buttons/BreakingNewsButton/BreakingNewsButton";
 
 const HeaderButtonsGroup = () => {
 
     return (
         <HeaderButtonsGroupStyles>
-            <HeaderButton>Get Article</HeaderButton>
-            <HeaderButton>Breaking News</HeaderButton>
+            <GetArticleButton />
+            <BreakingNewsButton />
         </HeaderButtonsGroupStyles>
     );
 }
