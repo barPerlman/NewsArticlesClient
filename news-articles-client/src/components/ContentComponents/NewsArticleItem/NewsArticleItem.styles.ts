@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
 export const NewsArticleItemStyles = styled.div.attrs({className: 'NewsArticleItem'})`
-  background-color: coral;
-  height: 7vh;
-  border: 1px solid black;
+  height: 9vh;
   margin-top: 15px;
+  display: flex;
+  border: 0.1px solid black;
+  border-radius: 5px;
+  
+  &:hover {
+    cursor: pointer;
+  }
 `;

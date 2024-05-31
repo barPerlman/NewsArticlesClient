@@ -8,8 +8,13 @@ export const HeaderButtonStyles = styled.button.attrs({className: 'HeaderButton'
 
 
   &:hover {
-    background-color: antiquewhite;
-    cursor: pointer;
+    background-color: ${({ disabled }) =>
+            disabled ? 'unset' : 'antiquewhite'};
+    cursor: ${({ disabled }) =>
+            disabled ? 'progress' : 'pointer'};
+  }
+  &:active {
+    opacity: 0.8;
   }
   
   
