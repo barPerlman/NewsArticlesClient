@@ -1,25 +1,27 @@
 import LiveTypewriter from "../../../LiveTypeWriter/LiveTypeWriter";
 import React from "react";
 import {StreamAreaStyles} from "./StreamArea.styles";
-import {useBreakingNewsContext} from "../../../providers/BreakingNewsProvider/BreakingNewsProvider";
+import useGetBreakingNewsStreamContent from "../../../../api/queries/useGetBreakingNewsStreamContent";
 
-const StreamArea = () => {
-    const {breakingNewsContent} = useBreakingNewsContext();
+interface StreamAreaProps {
+    articleId: string;
+}
+
+const StreamArea: React.FC<StreamAreaProps> = ({articleId}) => {
+    const { breakingNewsContentLoading, breakingNewsContentError, breakingNewsStreamContent} = useGetBreakingNewsStreamContent(articleId);
 
     return (
         <>
-            { breakingNewsContent.length > 0 &&
-                <StreamAreaStyles>
-                    <LiveTypewriter text={breakingNewsContent} speed={20}/>
-                </StreamAreaStyles>
-            }
-            { breakingNewsContent.length === 0 &&
-                <StreamAreaStyles>
-                    <LiveTypewriter text={'There is nothing to show.'} speed={20}/>
-                </StreamAreaStyles>
-            }
+            {breakingNewsContentLoading && <StreamAreaStyles>
+                <LiveTypewriter text={'............................................................'} speed={100}/>
+            </StreamAreaStyles>}
+            {breakingNewsContentError && <StreamAreaStyles>
+                <LiveTypewriter text={'Failed to get article content'} speed={10}/>
+            </StreamAreaStyles>}
+            {breakingNewsStreamContent && <StreamAreaStyles>
+                <LiveTypewriter text={breakingNewsStreamContent} speed={20}/>
+            </StreamAreaStyles>}
         </>
-
     );
 }
 export default StreamArea;

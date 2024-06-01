@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ModalStyles = styled.div.attrs({className: 'ModalStyles'})`
   width: 50vw;
-  height: 60vh;
+  height: 79vh;
   background: white;
   color: white;
   z-index: 2000;
@@ -22,14 +22,15 @@ export const ModalHeaderStyles = styled.div.attrs({className: 'ModalHeaderStyles
 export const ModalHeaderTextStyles = styled.h5.attrs({className: 'ModalHeaderText'})`
   margin: 0;
   padding: 10px;
-  color: #2c3e50;
+  background-color: #2c3e50;
+  color: white;
   font-weight: 500;
   font-size: 18px;
   text-align: center;
 `;
 
 export const ModalContentStyles = styled.div.attrs({className: 'ModalContentStyles'})`
-  padding: 10px;
+  padding: 10px 20px 10px 20px;
   font-size: 14px;
   color: #2c3e50;
   height: 10%;
@@ -38,14 +39,14 @@ export const ModalContentStyles = styled.div.attrs({className: 'ModalContentStyl
 `;
 
 export const BreakingNewsInfoStyles = styled.div.attrs({className: 'BreakingNewsInfoStyles'})`
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 `;
 
 export const BreakingNewsImageStyles = styled.div.attrs({className: 'BreakingNewsImageStyles'})`
-  width: 30%;
+  width: 40%;
 `;
 
 export const ModalActionsWrapperStyles = styled.div.attrs({className: 'ModalActionsWrapperStyles'})`

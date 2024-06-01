@@ -1,14 +1,26 @@
 import React from "react";
 import {ModalNextBreakingNewsButtonStyles} from "./ModalButtons.styles";
+import useGetBreakingNews from "../../../api/queries/useGetBreakingNews";
+import {useBreakingNewsContext} from "../../providers/BreakingNewsProvider/BreakingNewsProvider";
 
 interface ModalNextBreakingNewsButtonProps {
-    setModalIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ModalNextBreakingNewsButton: React.FC<ModalNextBreakingNewsButtonProps> = ({setModalIsOpen}) => {
+const ModalNextBreakingNewsButton: React.FC<ModalNextBreakingNewsButtonProps> = () => {
+    const {setBreakingNewsArticleMetadata} = useBreakingNewsContext();
+
+    const {getBreakingNews} = useGetBreakingNews();
+
+
+    const handleNextBreakingNewsButtonClick = () => {
+        setBreakingNewsArticleMetadata(null);
+        getBreakingNews()
+
+    }
+
 
     return (
-        <ModalNextBreakingNewsButtonStyles onClick={() => setModalIsOpen(false)}>Next Breaking News</ModalNextBreakingNewsButtonStyles>
+        <ModalNextBreakingNewsButtonStyles onClick={handleNextBreakingNewsButtonClick}>Next Breaking News</ModalNextBreakingNewsButtonStyles>
     );
 }
 

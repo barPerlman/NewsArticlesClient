@@ -4,6 +4,10 @@ export enum HTTPMethod {
     GET = 'get',
 }
 
+export enum ResponseType {
+    STREAM = 'stream',
+}
+
 type Responses =
     | void
     | unknown

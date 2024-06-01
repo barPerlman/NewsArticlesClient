@@ -27,7 +27,6 @@ export interface BreakingNewsMetadataDto {
     }
     author: string;
     title: string;
-    description: string | null;
     url: string;
     urlToImage: string | null;
     publishedAt: string | null;

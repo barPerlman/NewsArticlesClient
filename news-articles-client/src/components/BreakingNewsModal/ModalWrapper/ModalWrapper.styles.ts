@@ -5,4 +5,5 @@ export const ModalWrapperStyles = styled.div.attrs({className: 'ModalWrapperStyl
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2000;
 `;

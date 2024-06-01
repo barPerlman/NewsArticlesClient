@@ -9,8 +9,13 @@ const BreakingNewsImage: React.FC<BreakingNewsImageProps> = ({imageUrl}) => {
     return (
         <BreakingNewsImageStyles>
             {imageUrl &&
-                <img className="breaking-news-image-img" src={imageUrl} alt={'no url'}/>
+                <img style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                }} className="breaking-news-image-img" src={imageUrl} alt={'no url'}/>
             }
+            {!imageUrl && <div>No Image Url</div>}
         </BreakingNewsImageStyles>
     );
 }

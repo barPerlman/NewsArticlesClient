@@ -12,7 +12,7 @@ const ModalActionButtonsWrapper: React.FC<ModalActionButtonsWrapperProps> = ({se
     return (
         <ModalActionButtonsWrapperStyles>
             <ModalStopButton setModalIsOpen={setModalIsOpen} />
-            <ModalNextBreakingNewsButton setModalIsOpen={setModalIsOpen} />
+            <ModalNextBreakingNewsButton />
         </ModalActionButtonsWrapperStyles>
     );
 }
