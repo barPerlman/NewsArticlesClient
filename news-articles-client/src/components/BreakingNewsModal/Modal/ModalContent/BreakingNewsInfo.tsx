@@ -9,8 +9,12 @@ const BreakingNewsInfo: React.FC<BreakingNewsInfoProps> = ({sourceName, author})
 
     return (
         <BreakingNewsInfoStyles>
-            <div>source: {sourceName}</div>
-            <div>author: {author}</div>
+            <div>
+                <div>source: <b>{sourceName}</b></div>
+            </div>
+            <div>
+                <div>author: <b>{author || 'No author'}</b></div>
+            </div>
         </BreakingNewsInfoStyles>
     );
 }

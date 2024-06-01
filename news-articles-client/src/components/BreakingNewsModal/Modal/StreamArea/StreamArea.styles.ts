@@ -4,7 +4,7 @@ export const StreamAreaStyles = styled.div.attrs({className: 'StreamArea'})`
   margin: 10px;
   font-size: 14px;
   color: #2c3e50;
-  height: 70%;
+  height: 53%;
   overflow-y: scroll;
   border-radius: 0 0 10px 10px;
   padding: 10px;

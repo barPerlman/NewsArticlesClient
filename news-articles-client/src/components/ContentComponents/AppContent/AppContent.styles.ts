@@ -8,6 +8,6 @@ export const AppContentStyles = styled.div.attrs({className: 'AppContentBody'})`
   align-items: center;
 
   padding-top: 20px;
-  margin: 10vh 9vw 5vh;
+  margin: 18vh 9vw 5vh;
   padding-bottom: 20px;
 `;
