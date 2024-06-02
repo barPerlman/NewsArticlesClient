@@ -25,7 +25,7 @@ export const ModalCloseButtonStyles = styled.button.attrs({className: "ModalClos
 `;
 
 
-export const ModalStopButtonStyles = styled.button.attrs({className: "ModalCloseButtonStyles"})`
+export const ModalCancelButtonStyles = styled.button.attrs({className: "ModalCloseButtonStyles"})`
   margin-top: 10px;
   cursor: pointer;
   font-weight: 500;

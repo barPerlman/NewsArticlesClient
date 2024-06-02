@@ -2,6 +2,10 @@ import React, {PropsWithChildren, useContext, useState} from "react";
 import {ArticleDto} from "../../../common/types";
 import localStorageService from "../../../services/localStorageService";
 
+/**
+ *  creating provider for news article state
+ *  and its reusable context
+ */
 
 interface NewsArticlesSetters {
     setRetrievedArticlesCount: React.Dispatch<React.SetStateAction<number>>;

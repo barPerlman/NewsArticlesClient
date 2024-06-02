@@ -1,4 +1,4 @@
-import ModalStopButton from "../../../Buttons/ModalButtons/ModalStopButton";
+import ModalCancelButton from "../../../Buttons/ModalButtons/ModalCancelButton";
 import ModalNextBreakingNewsButton from "../../../Buttons/ModalButtons/ModalNextBreakingNewsButton";
 import React from "react";
 import {ModalActionButtonsWrapperStyles} from "../Modal.styles";
@@ -11,7 +11,7 @@ const ModalActionButtonsWrapper: React.FC<ModalActionButtonsWrapperProps> = ({se
 
     return (
         <ModalActionButtonsWrapperStyles>
-            <ModalStopButton setModalIsOpen={setModalIsOpen} />
+            <ModalCancelButton setModalIsOpen={setModalIsOpen} />
             <ModalNextBreakingNewsButton />
         </ModalActionButtonsWrapperStyles>
     );

@@ -10,6 +10,10 @@ import {useBreakingNewsContext} from "../../providers/BreakingNewsProvider/Break
 interface ModalProps {
     setModalIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+/**
+ * holds the structure of the modal
+ */
 const Modal: React.FC<ModalProps> = ({setModalIsOpen}) => {
     const {breakingNewsArticleMetadata} = useBreakingNewsContext();
     return (

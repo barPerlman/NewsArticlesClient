@@ -1,3 +1,6 @@
+/**
+ * The following are the Entities in the system and their response types
+ */
 
 export interface ArticleDto {
     source: {
@@ -32,9 +35,6 @@ export interface BreakingNewsMetadataDto {
     publishedAt: string | null;
 }
 
-export interface BreakingNewsContentDto {
-    contentChunk: string;
-}
 
 export interface GetBreakingNewsMetadataResponse {
     status: string;
@@ -42,6 +42,3 @@ export interface GetBreakingNewsMetadataResponse {
     articles: BreakingNewsMetadataDto[]
 }
 
-export interface GetBreakingNewsContentResponse {
-    content: BreakingNewsContentDto;
-}

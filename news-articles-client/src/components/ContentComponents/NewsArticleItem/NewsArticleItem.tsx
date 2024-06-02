@@ -9,9 +9,15 @@ interface NewsArticleItemProps {
 }
 const NewsArticleItem: React.FC<NewsArticleItemProps> = ({articleDto}) => {
 
+    const {urlToImage, url} = articleDto;
+
+    const handleNewsArticleClick = () => {
+        window.open(url);
+    }
+
     return (
-        <NewsArticleItemStyles>
-            <ArticleImage imageUrl={articleDto.urlToImage}/>
+        <NewsArticleItemStyles onClick={handleNewsArticleClick}>
+            <ArticleImage imageUrl={urlToImage}/>
             <ArticleText articleDto={articleDto} />
         </NewsArticleItemStyles>
 
