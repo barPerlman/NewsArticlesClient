@@ -2,6 +2,7 @@ import httpClient from "./httpClient";
 import {HTTPMethod} from "./types";
 import {GetArticleResponse, GetBreakingNewsMetadataResponse} from "../common/types";
 import config from './constants/config';
+import React from "react";
 
 /**
  * The api service is a rest api service which holds the http request functions required to call the backend service
@@ -22,8 +23,9 @@ const ApiService = {
     /**
      * This is an implementation of stream reading from a response pipe
      * @param id - id of the article we want to get it's stream content (description+content)
+     * @param setBreakingNewsArticleContent - setState of article content to update
      */
-    getBreakingNewsContent: async (id: string) => {
+    getBreakingNewsContent: async (id: string, setBreakingNewsArticleContent: React.Dispatch<React.SetStateAction<string>>) => {
         const { apiUrl } = config;
         const response = await fetch(`${apiUrl}breaking-news/content/${id}`);
 
@@ -41,10 +43,9 @@ const ApiService = {
             ({ done, value } = await reader.read());
             if (value) {
                 content += decoder.decode(value, { stream: true });
+                setBreakingNewsArticleContent(content); //update the state of the content to add the new processed chunk
             }
         }
-
-        return content;
     }
 };
 
