@@ -12,20 +12,21 @@ const useGetBreakingNewsStreamContent = (id: string) => {
 
     const {setBreakingNewsArticleContent} = useBreakingNewsContext();
 
-    const { data, isLoading, error, refetch } = useQuery(
+    const { data, isLoading, error, refetch, isFetching } = useQuery(
         [QueryKeys.BreakingNewsContent],
         () => ApiService.getBreakingNewsContent(id, setBreakingNewsArticleContent),
         {
             refetchOnWindowFocus: false,
             enabled: !!id,
-        }
+        },
     );
 
     return {
         breakingNewsStreamContent: data,
         breakingNewsContentLoading: isLoading,
         breakingNewsContentError: error,
-        getBreakingNewsContent: refetch
+        getBreakingNewsContent: refetch,
+        isFetching
     };
 };
 

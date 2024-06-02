@@ -10,9 +10,12 @@ export enum HeaderButtonsLabels {
 export enum BreakingNewsModalLabels {
     Title = 'Breaking News!',
     CancelButton = 'Cancel',
-    NextBreakingNewsButton = 'Next Breaking News'
+    NextBreakingNewsButton = 'Next Breaking News',
+    ErrorMessage = 'Failed to fetch Breaking News. Try again later',
+    LoadingLabel = 'Loading...',
 }
 
 export enum HeaderLabels {
-    ArticlesRetrieved = 'Articles Retrieved'
+    ArticlesRetrieved = 'Articles Retrieved',
+    GetArticleRequestFailed = 'Last request Failed',
 }

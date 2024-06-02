@@ -9,11 +9,13 @@ import { BreakingNewsMetadataDto} from "../../../common/types";
 interface BreakingNewsSetters {
     setBreakingNewsArticleMetadata: React.Dispatch<React.SetStateAction<BreakingNewsMetadataDto | null>>;
     setBreakingNewsArticleContent: React.Dispatch<React.SetStateAction<string>>;
+    setIsLoadingContent: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface BreakingNewsVariables {
     breakingNewsArticleMetadata: BreakingNewsMetadataDto | null;
     breakingNewsArticleContent: string;
+    isLoadingContent: boolean;
 }
 
 interface BreakingNewsContextInterface extends BreakingNewsSetters, BreakingNewsVariables {}
@@ -26,6 +28,7 @@ const BreakingNewsProvider: React.FC<PropsWithChildren<{}>> = ({children}) => {
 
     const [breakingNewsArticleMetadata, setBreakingNewsArticleMetadata] = useState<BreakingNewsMetadataDto | null>(null);
     const [breakingNewsArticleContent, setBreakingNewsArticleContent] = useState<string>('');
+    const [isLoadingContent, setIsLoadingContent] = useState<boolean>(false);
 
 
     return (
@@ -33,7 +36,9 @@ const BreakingNewsProvider: React.FC<PropsWithChildren<{}>> = ({children}) => {
             breakingNewsArticleMetadata,
             setBreakingNewsArticleMetadata,
             breakingNewsArticleContent,
-            setBreakingNewsArticleContent
+            setBreakingNewsArticleContent,
+            isLoadingContent,
+            setIsLoadingContent,
         }}>
             {children}
         </BreakingNewsContext.Provider>

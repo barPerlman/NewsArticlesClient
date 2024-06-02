@@ -9,16 +9,25 @@ import {useNewsArticlesContext} from "../../components/providers/NewsArticlesPro
  */
 const useGetArticle = () => {
 
-    const {addArticle} = useNewsArticlesContext();
+    const {addArticle, setIsLoadingArticle, setIsErrorArticle} = useNewsArticlesContext();
 
     const { data, isLoading, error, refetch } = useQuery(
         [QueryKeys.Article],
-        () => ApiService.getArticle(1),
+        () => {
+            setIsLoadingArticle(true);
+            return ApiService.getArticle(1);
+        },
         {
             refetchOnWindowFocus: false,
             enabled: false,
             onSuccess: (data) => {
                 addArticle(data.articles[0]);
+                setIsLoadingArticle(false);
+                setIsErrorArticle(false);
+            },
+            onError: () => {
+                setIsLoadingArticle(false);
+                setIsErrorArticle(true);
             }
         }
     );

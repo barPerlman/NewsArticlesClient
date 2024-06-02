@@ -26,10 +26,11 @@ const retry = (failureCount: number, error: unknown) => {
             .catch((e) => {
                 console.warn('Failed to get breaking news metadata: ', e.message);
             });
-    } else if (status !== 200 && requestedApi && requestedApi.includes("api/breaking-news/content")){
-        // don't retry for getting a content, just log it.
-        const articleId = requestedApi.split('/').pop();
-        console.warn('Failed to get breaking news content for article id: ', articleId);
+    }
+
+    if (failureCount === 3 ) {
+        console.warn('failed to retry request 3 times');
+        return false;
     }
 
     return true;

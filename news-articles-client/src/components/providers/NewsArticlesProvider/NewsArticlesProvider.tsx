@@ -11,11 +11,15 @@ interface NewsArticlesSetters {
     setRetrievedArticlesCount: React.Dispatch<React.SetStateAction<number>>;
     setArticles: React.Dispatch<React.SetStateAction<ArticleDto[]>>;
     addArticle: (articleDto: ArticleDto) => void;
+    setIsLoadingArticle: React.Dispatch<React.SetStateAction<boolean>>
+    setIsErrorArticle: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface NewsArticlesVariables {
     retrievedArticlesCount: number;
     articles: ArticleDto[];
+    isLoadingArticle: boolean
+    isErrorArticle: boolean
 }
 
 interface NewsArticlesContextInterface extends NewsArticlesSetters, NewsArticlesVariables {}
@@ -28,6 +32,8 @@ const NewsArticlesProvider: React.FC<PropsWithChildren<{}>> = ({children}) => {
 
     const [retrievedArticlesCount, setRetrievedArticlesCount] = useState<number>(0);
     const [articles, setArticles] = useState<ArticleDto[]>([]);
+    const [isLoadingArticle, setIsLoadingArticle] = useState<boolean>(false);
+    const [isErrorArticle, setIsErrorArticle] = useState<boolean>(false);
 
 
     const addArticle = (articleDto: ArticleDto) => {
@@ -44,7 +50,10 @@ const NewsArticlesProvider: React.FC<PropsWithChildren<{}>> = ({children}) => {
             articles,
             setArticles,
             addArticle,
-
+            isLoadingArticle,
+            setIsLoadingArticle,
+            isErrorArticle,
+            setIsErrorArticle
         }}>
             {children}
         </NewsArticlesContext.Provider>
