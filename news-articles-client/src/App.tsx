@@ -4,15 +4,10 @@ import AppContent from "./components/ContentComponents/AppContent/AppContent";
 import AppFooter from "./components/FooterComponents/AppFooter/AppFooter";
 import Providers from "./components/providers/Providers";
 import BreakingNewsModal from "./components/BreakingNewsModal/BreakingNewsModal";
-import useKeyPress from "./hooks/useKeyPress";
 
 function App() {
 
     const [breakingNewsModalIsOpen, setBreakingNewsModalIsOpen] = useState<boolean>(false);
-
-    useKeyPress('Escape', () => {
-        setBreakingNewsModalIsOpen(false);
-    });
 
     return (
     <Providers>

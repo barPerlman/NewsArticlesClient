@@ -10,7 +10,7 @@ const AppContent = () => {
 
     return (
         <AppContentStyles>
-            <NewsArticlesList />
+            <NewsArticlesList/>
         </AppContentStyles>
     );
 }

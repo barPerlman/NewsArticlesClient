@@ -6,6 +6,8 @@ import ModalContent from "./ModalContent/ModalContent";
 import StreamArea from "./StreamArea/StreamArea";
 import ModalActionsWrapper from "./ModalActionsWrapper/ModalActionsWrapper";
 import {useBreakingNewsContext} from "../../providers/BreakingNewsProvider/BreakingNewsProvider";
+import LoaderSpinnerWrapper from "../../LoaderSpinnerWrapper/LoaderSpinnerWrapper";
+import ModalErrorMessage from "../ModalErrorMessage/ModalErrorMessage";
 
 interface ModalProps {
     setModalIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,13 +17,13 @@ interface ModalProps {
  * holds the structure of the modal
  */
 const Modal: React.FC<ModalProps> = ({setModalIsOpen}) => {
-    const {breakingNewsArticleMetadata} = useBreakingNewsContext();
+    const {breakingNewsArticleMetadata, isLoadingContent} = useBreakingNewsContext();
     return (
         <ModalStyles>
            <ModalHeader />
            <ModalCloseButton setModalIsOpen={setModalIsOpen} />
             <ModalContent />
-            {breakingNewsArticleMetadata && <StreamArea articleId={breakingNewsArticleMetadata.id}/>}
+            {breakingNewsArticleMetadata ? <StreamArea articleId={breakingNewsArticleMetadata.id}/> : (isLoadingContent ? <LoaderSpinnerWrapper /> : <ModalErrorMessage />)}
             <ModalActionsWrapper setModalIsOpen={setModalIsOpen} />
         </ModalStyles>
     );

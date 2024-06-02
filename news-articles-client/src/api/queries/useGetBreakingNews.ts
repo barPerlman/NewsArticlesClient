@@ -10,17 +10,25 @@ import {useBreakingNewsContext} from "../../components/providers/BreakingNewsPro
  */
 const useGetBreakingNews = () => {
 
-    const {setBreakingNewsArticleMetadata} = useBreakingNewsContext();
+    const {setBreakingNewsArticleMetadata, setIsLoadingContent} = useBreakingNewsContext();
 
     const { data, isLoading, error, refetch } = useQuery(
         [QueryKeys.BreakingNews],
-        () => ApiService.getBreakingNews(),
+        () => {
+            setIsLoadingContent(true); // start request to get content of breaking news so loading state is true
+            return ApiService.getBreakingNews()
+        },
         {
             refetchOnWindowFocus: false,
             enabled: false,
             onSuccess: (data) => {
                 const articleMetadata = data.articles[0];
                 setBreakingNewsArticleMetadata(articleMetadata);
+                setIsLoadingContent(false); // got success response so not  in loading state anymore
+            },
+            onError: () => {
+                // after 4 failed requests got an error and set loading flag back to false
+                setIsLoadingContent(false);
             }
         }
     );

@@ -12,13 +12,16 @@ interface ModalBackgroundProps {
  */
 const ModalBackground: React.FC<ModalBackgroundProps> = ({setModalIsOpen}) => {
 
-    const {setBreakingNewsArticleMetadata} = useBreakingNewsContext();
+    const {setBreakingNewsArticleMetadata, setBreakingNewsArticleContent} = useBreakingNewsContext();
+
+    const handleClickBackground = () => {
+        setBreakingNewsArticleMetadata(null);
+        setBreakingNewsArticleContent('');
+        setModalIsOpen(false);
+    }
 
     return (
-        <ModalBackgroundStyles onClick={() => {
-            setBreakingNewsArticleMetadata(null);
-            setModalIsOpen(false);
-        }}/>
+        <ModalBackgroundStyles onClick={handleClickBackground}/>
     );
 }
 
