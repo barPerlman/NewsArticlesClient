@@ -5,6 +5,11 @@ import { HTTPMethod, Requests, Responses } from './types';
 import config from '../api/constants/config';
 import HttpError from "./HttpError";
 
+/**
+ * Here I created http client which wraps the axios http client for simpler apiService using and intercepting requests
+ * and responses so I could enrich them with error handling mechanism
+ */
+
 const { apiUrl } = config;
 
 const axiosConfig: AxiosRequestConfig = {
@@ -80,6 +85,9 @@ request.interceptors.response.use(
     }
 );
 
+/**
+ * Adds query params to the url string
+ */
 function paramsSerializer(params: AxiosRequestConfig['params']) {
     return qs.stringify(params, { arrayFormat: 'repeat' });
 }

@@ -1,6 +1,7 @@
 import HeaderButton from "../HeaderButtons/HeaderButton";
 import React from "react";
 import useGetBreakingNews from "../../../api/queries/useGetBreakingNews";
+import {HeaderButtonsLabels} from "../../../common/constants/labels";
 
 interface BreakingNewsButtonProps {
     setBreakingNewsModalIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,7 +17,7 @@ const BreakingNewsButton: React.FC<BreakingNewsButtonProps> = ({setBreakingNewsM
     }
 
     return (
-        <HeaderButton handleClick={handleBreakingNewsButtonClick}>Breaking News</HeaderButton>
+        <HeaderButton handleClick={handleBreakingNewsButtonClick}>{HeaderButtonsLabels.BreakingNews}</HeaderButton>
     );
 }
 

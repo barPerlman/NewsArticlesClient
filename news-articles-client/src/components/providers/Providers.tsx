@@ -4,6 +4,9 @@ import {QueryClientProvider} from "react-query";
 import queryClient from "../../api/QueryClient";
 import BreakingNewsProvider from "./BreakingNewsProvider/BreakingNewsProvider";
 
+/**
+ * Creating a provider component which can wrap the app with all the providers available
+ */
 const Providers: React.FC<PropsWithChildren<{}>> = ({children}) => {
 
     return (

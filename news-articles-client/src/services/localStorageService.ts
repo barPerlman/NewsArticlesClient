@@ -1,5 +1,8 @@
 import {ArticleDto} from "../common/types";
 
+/**
+ * service that expose interface to deal with local storage persistence of the browser
+ */
 
 const localStorageService = {
     getArticlesItems: (): ArticleDto[] | null => {
@@ -24,9 +27,6 @@ const localStorageService = {
         localStorage.setItem('news-articles', JSON.stringify([value, ...articles]));
     },
 
-    removeAllArticlesItems: (): void => {
-        localStorage.removeItem('news-articles');
-    },
 };
 
 export default localStorageService;

@@ -6,24 +6,30 @@ interface LiveTypeWriterProps {
     speed: number;
 }
 
+/**
+ * This component renders a paragraph with live type writing animation
+ * @param text - the text to display
+ * @param speed - the interval time to write the next char of text
+ */
 const LiveTypewriter: React.FC<LiveTypeWriterProps> = ({ text, speed=50}) => {
     const paragraphRef = useRef<HTMLParagraphElement>(null);
     const [displayedText, setDisplayedText] = useState('');
+    const currentIndexRef = useRef(0);
 
     useEffect(() => {
-        let currentIndex = 0;
+        currentIndexRef.current = 0;
 
         const intervalId = setInterval(() => {
             setDisplayedText((prev) => {
-                const nextCharToType = text[currentIndex]
+                const nextCharToType = text[currentIndexRef.current]
                 if (nextCharToType){
                     return prev + nextCharToType;
                 }
                 return prev;
             });
-            currentIndex++;
+            currentIndexRef.current++;
 
-            if (currentIndex === text.length) {
+            if (currentIndexRef.current >= text.length) {
                 clearInterval(intervalId);
             }
         }, speed);
@@ -31,6 +37,7 @@ const LiveTypewriter: React.FC<LiveTypeWriterProps> = ({ text, speed=50}) => {
         return () => clearInterval(intervalId);
     }, [text, speed]);
 
+    // keep the scroll position to see the bottom of the text in case it overflowed y axis
     useEffect(() => {
         if (paragraphRef.current) {
             paragraphRef.current.scrollIntoView({ behavior: 'smooth' });

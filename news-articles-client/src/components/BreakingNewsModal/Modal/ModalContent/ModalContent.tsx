@@ -4,6 +4,9 @@ import {ModalContentStyles} from "../Modal.styles";
 import BreakingNewsInfo from "./BreakingNewsInfo";
 import BreakingNewsImage from "./BreakingNewsImage";
 
+/**
+ * This component includes the components that shows the breaking news source, author, image
+ */
 const ModalContent = () => {
     const {breakingNewsArticleMetadata} = useBreakingNewsContext();
 

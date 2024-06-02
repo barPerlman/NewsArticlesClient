@@ -8,7 +8,7 @@ interface ArticleImageProps {
 const ArticleImage: React.FC<ArticleImageProps> = ({imageUrl}) => {
 
     return (
-        <ArticleImageStyles imageUrl={imageUrl}>  <div>{imageUrl ? '' : 'N/A'}</div> </ArticleImageStyles>
+        <ArticleImageStyles $imageUrl={imageUrl}>  <div>{imageUrl ? '' : 'N/A'}</div> </ArticleImageStyles>
     );
 }
 

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 interface ArticleImageStylesProps {
-    imageUrl: string | null;
+    $imageUrl: string | null;
 }
 export const ArticleImageStyles = styled.div.attrs({className: 'ArticleImage'})<ArticleImageStylesProps>`
-  background-image: ${({ imageUrl }) => imageUrl ? `url(${imageUrl})` : 'unset'};
+  background-image: ${({ $imageUrl }) => $imageUrl ? `url(${$imageUrl})` : 'unset'};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -13,4 +13,5 @@ export const ArticleImageStyles = styled.div.attrs({className: 'ArticleImage'})<
   text-align: center;
   justify-content: center;
   align-content: center;
+
 `;

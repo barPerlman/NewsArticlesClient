@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ModalBackgroundStyles = styled.div.attrs({className: 'ModalBackgroundStyles'})`
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
   width: 100vw;
   height: 100vh;
   z-index: 1500;
