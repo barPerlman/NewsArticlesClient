@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 import ApiService from '../ApiService';
 import { QueryKeys} from "../constants/queryKeys";
+import {useBreakingNewsContext} from "../../components/providers/BreakingNewsProvider/BreakingNewsProvider";
 
 /**
  * Custom hook used to get breaking news article description+content as stream from the server and maintaining its state
@@ -9,9 +10,11 @@ import { QueryKeys} from "../constants/queryKeys";
  */
 const useGetBreakingNewsStreamContent = (id: string) => {
 
+    const {setBreakingNewsArticleContent} = useBreakingNewsContext();
+
     const { data, isLoading, error, refetch } = useQuery(
         [QueryKeys.BreakingNewsContent],
-        () => ApiService.getBreakingNewsContent(id),
+        () => ApiService.getBreakingNewsContent(id, setBreakingNewsArticleContent),
         {
             refetchOnWindowFocus: false,
             enabled: !!id,

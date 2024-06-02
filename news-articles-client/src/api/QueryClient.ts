@@ -27,23 +27,9 @@ const retry = (failureCount: number, error: unknown) => {
                 console.warn('Failed to get breaking news metadata: ', e.message);
             });
     } else if (status !== 200 && requestedApi && requestedApi.includes("api/breaking-news/content")){
+        // don't retry for getting a content, just log it.
         const articleId = requestedApi.split('/').pop();
-        if (articleId){
-            ApiService.getBreakingNewsContent(articleId)
-                .then(() => {
-                    queryClient.refetchQueries({active: true});
-                })
-                .catch((e) => {
-                    console.warn('Failed to get breaking news content: ', e.message);
-                });
-        } else {
-            console.warn('Failed to parse article id from request url');
-        }
-    }
-
-    if (failureCount === 3 ) {
-        console.warn('failed to retry request 3 times');
-        return false;
+        console.warn('Failed to get breaking news content for article id: ', articleId);
     }
 
     return true;

@@ -9,7 +9,7 @@ interface ArticleSourceProps {
 const ArticleTitle: React.FC<ArticleSourceProps> = ({sourceName, author}) => {
 
     return (
-        <ArticleSourceStyles>{sourceName || 'N/A'}, {author || 'N/A'}</ArticleSourceStyles>
+        <ArticleSourceStyles>{sourceName || 'N/A'}, <b>{author || 'N/A'}</b></ArticleSourceStyles>
     );
 
 }

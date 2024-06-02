@@ -17,8 +17,6 @@ const LiveTypewriter: React.FC<LiveTypeWriterProps> = ({ text, speed=50}) => {
     const currentIndexRef = useRef(0);
 
     useEffect(() => {
-        currentIndexRef.current = 0;
-
         const intervalId = setInterval(() => {
             setDisplayedText((prev) => {
                 const nextCharToType = text[currentIndexRef.current]
